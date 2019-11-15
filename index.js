@@ -120,12 +120,7 @@ class Lambdasian {
     return `Hello my name is ${this.name}, I am from ${this.location}`;
   }
 }
-const Lamb = new Lambdasian({
-name: 'Oscar',
-age: 50,
-location: 'USA'
-})
-Lamb.speak();
+
 
 
 /*
@@ -146,26 +141,26 @@ class Instructor extends Lambdasian {
   constructor(attributes) {
     super(attributes);
     this.specialty = attributes.specialty,
-    this.favLanguage = attributes.favLanguage,
-    this.catchPhrase = attributes.catchPhrase
+      this.favLanguage = attributes.favLanguage,
+      this.catchPhrase = attributes.catchPhrase
   }
   demo(subject) {
-    return `Today we are learning about ${subject}`
+    return `Today we are learning about ${subject}`;
   }
   grade(student, subject) {
-    return `${this.name} receives a perfect score on ${subject}`
+    return `${student.name} receives a perfect score on ${subject}`;
   }
 }
 
-const newInstructor = new Instructor({
-name: 'Instructor1',
-age: 25,
-location: 'USA',
-specialty: 'redux',
-favLanguage: 'JavaScript, Python, Elm etc.',
-catchPhrase: `Don't forget the homies`
-})
-newInstructor.speak();
+//const newInstructor = new Instructor({
+ // name: 'Instructor1',
+ // age: 25,
+ // location: 'USA',
+ // specialty: 'redux',
+ // favLanguage: 'JavaScript, Python, Elm etc.',
+ // catchPhrase: `Don't forget the homies`
+//})
+
 
 
 /*
@@ -185,31 +180,32 @@ newInstructor.speak();
 */
 class Student extends Lambdasian {
   constructor(attributes) {
-    super(attributes);
-    this.spreviousBackground = attributes.previousBackground,
-    this.className = attributes.className,
-    this.cfavSubjects = attributes.favSubjects
+    super(attributes),
+      this.previousBackground = attributes.previousBackground,
+      this.className = attributes.className,
+      this.favSubjects = attributes.favSubjects
   }
   listSubjects() {
-    return 'Loving HTML, CSS, JS!'
+    return `Loving ${this.favSubjects}`;
   }
   PRAssignment(subject) {
-    return `${this.name} has submitted a PR for ${subject}`
+    return `${this.name} has submitted a PR for ${subject}`;
   }
   sprintChallenge(subject) {
-    return `${this.name} has begun sprint challenge on ${subject}`
+    return `${this.name} has begun sprint challenge on ${subject}`;
   }
 }
 
 const newStudent = new Student({
-name: 'Student1',
-age: 19,
-location: 'USA',
-previousBackground: 'Customer Service',
-className: 'CS132',
-favSubjects: `['HTML', 'CSS', 'JS']`
+  name: 'Student1',
+  age: 19,
+  location: 'USA',
+  previousBackground: 'Lambda School',
+  className: 'CS132',
+  favSubjects: `['HTML', 'CSS', 'JS']`
 })
-newStudent.speak();
+
+
 
 /*
   TASK 6
@@ -224,29 +220,22 @@ newStudent.speak();
         + `standUp` a method that takes in a slack channel and returns `{name} announces to {channel}, @channel standy times!`
         + `debugsCode` a method that takes in a student object and a subject and returns `{name} debugs {student.name}'s code on {subject}`
 */
-class ProjectManager extends Instructor{
+class ProjectManager extends Instructor {
   constructor(attributes) {
     super(attributes);
+    this.specialty = attributes.specialty,
+      this.favLanguage = attributes.favLanguage,
+      this.catchPhrase = attributes.catchPhrase
     this.gradClassName = attributes.gradClassName,
-    this.favInstructor = attributes.favInstructor
+      this.favInstructor = attributes.favInstructor
   }
   standUp(channel) {
     return `${this.name} announces to ${channel} @channel standy times!`
   }
-  debugsCode(subject) {
-    return `${this.name} debugs ${this.name}\'s code on ${subject}`
+  debugsCode(student, subject) {
+    return `${this.name} debugs ${student.name}'s code on ${subject}`;
   }
 }
-const  newProjectManager = new ProjectManager({
-name: 'Instructor1',
-age: 31,
-worklocation: 'USA',
-specialty: 'redux',
-favLanguage: 'JavaScript, Python, Elm etc.',
-catchPhrase: `Don't forget the homies`,
-gradClassName: 'CS1',
-favInstructor: `Sean`
-})
 
 
 /*
